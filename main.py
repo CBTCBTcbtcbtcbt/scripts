@@ -164,6 +164,9 @@ if __name__ == "__main__":
     # Configuration
     OUTPUT_JSON_PATH = "data/action_data.json"
 
+    if not os.path.exists('data'):
+        os.makedirs('data')
+
     # Execute for all images
     for i in range(1, batch_num + 1):
         for j in range(1, batch_size + 1):

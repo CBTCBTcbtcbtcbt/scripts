@@ -14,5 +14,9 @@ Thumbs.db
 rule.md
 config.yaml
 
+
 # 忽略模型文件
 *.safetensors
+
+# 忽略数据文件夹
+data/
