@@ -1,0 +1,290 @@
+[
+    {
+        "instruction": "保持当前航向，向正前方的发光柱体靠拢，注意避开右侧绿色设备并留意左侧珊瑚丛，保持匀速前进。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中心正前方有一个发光的柱体，符合指令中的目标描述。右侧有一个较大的绿色设备，左侧有珊瑚丛。为了向目标靠拢并避开两侧障碍，机器人需要保持当前航向并向前匀速移动。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/1_1.png"
+        ]
+    },
+    {
+        "instruction": "向光亮方向匀速前行，注意观察两侧物体，确保航道安全。",
+        "input": "",
+        "output": {
+            "reasoning": "光亮位于正前方，航道中央目前没有直接障碍物。按照指令向光亮方向匀速前进。两侧虽有物体，但目前不影响前行，需保持警惕。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.9
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/1_2.png"
+        ]
+    },
+    {
+        "instruction": "继续保持匀速向前，对准前方的石柱中心行驶，注意避开右侧的汽车残骸并留意光影下的环境变化。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中心有一根高大的石柱，这是指令要求的目标。右侧可见一辆蓝色汽车残骸，左侧有石块遗迹。为了对准石柱中心行驶并避开右侧障碍物，机器人应继续保持向前移动。当前光照充足，目标明确，路径上无直接阻碍。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/2_1.png"
+        ]
+    },
+    {
+        "instruction": "沿着前方的石条路径稳步前进，向中央的沉没平台靠近，注意保持与左侧气泡柱的距离并观察右侧管道的延伸情况。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中心有一条明显的石条路径直通前方的沉没平台。按照指令要求，机器人需要沿着该路径稳步前进。目前机器人正对路径，左侧气泡柱和右侧管道均在安全距离内，前方视线良好，无直接障碍物。因此，决定采取向前移动的策略以靠近目标平台。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/2_2.png"
+        ]
+    },
+    {
+        "instruction": "向前匀速推进，保持对准前方的生物目标，注意规避下方近处的红色珊瑚，保持平稳姿态。",
+        "input": "",
+        "output": {
+            "reasoning": "前方视野中心存在目标生物，下方左侧有明显的红色珊瑚障碍物。根据指令要求，应保持向前推进并对准该生物，同时注意避开下方的红色珊瑚。目前目标清晰，机器人应维持匀速前进姿态。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/3_1.png"
+        ]
+    },
+    {
+        "instruction": "保持匀速向前航行，穿过珊瑚礁缝隙向光亮处移动，注意避开两侧突出的岩层结构。",
+        "input": "",
+        "output": {
+            "reasoning": "当前机器人位于珊瑚礁缝隙中，正前方有明显的光亮区域。路径前方相对开阔，两侧虽有岩层但目前有足够空间通过。根据指令要求向光亮处匀速移动，因此选择向前飞行。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/3_2.png"
+        ]
+    },
+    {
+        "instruction": "对准管道中心，保持匀速向前推进，注意观察深处的阴影变化。",
+        "input": "",
+        "output": {
+            "reasoning": "当前视野处于管道内部，且相机已基本对准管道中心。前方路径清晰，没有即时障碍物。根据指令要求‘对准管道中心，保持匀速向前推进’，目前状态符合要求，可以执行向前移动的操作。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/4_1.png"
+        ]
+    },
+    {
+        "instruction": "保持匀速，稳步向前靠近前方的发光目标物，注意观察周围的水流波动。",
+        "input": "",
+        "output": {
+            "reasoning": "前方发现发光的目标物体，根据指令要求稳步向前靠近，当前路径清晰，水流波动处于可控范围内，因此选择继续向前移动并保持中等速度。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/4_2.png"
+        ]
+    },
+    {
+        "instruction": "稳步向前靠近中心柱状目标，注意规避左侧交错的缆绳状结构。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中心有一个明显的柱状目标，左侧是交错的缆绳状障碍物。根据指令要求稳步向前靠近中心目标并规避左侧障碍，目前路径正前方相对开阔，适合向前移动。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.9
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/5_1.png"
+        ]
+    },
+    {
+        "instruction": "保持匀速向前，对准中心的发光结构，注意避开近处横跨的黄色管状物。",
+        "input": "",
+        "output": {
+            "reasoning": "目标位于图像中心的发光结构，前方有黄色管状障碍物，需保持匀速向前飞行并对准目标，同时观察障碍物距离以确保安全避让。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/5_2.png"
+        ]
+    },
+    {
+        "instruction": "向右侧平移绕过前方的红色圆形浮标，注意避开左侧的珊瑚礁并保持匀速前进。",
+        "input": "",
+        "output": {
+            "reasoning": "前方视野中心存在一个大型红色圆形浮标，左侧分布有珊瑚礁。根据任务指令，需要向右侧平移以绕过浮标并避开左侧珊瑚礁，同时保持匀速前进。因此，决策为向右移动，速度设定为中等。",
+            "action": {
+                "direction": "右",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/6_1.png"
+        ]
+    },
+    {
+        "instruction": "避开右侧的橙色障碍物，向左前方光影汇聚的开阔区域匀速推进，注意保持与底部珊瑚礁的安全距离。",
+        "input": "",
+        "output": {
+            "reasoning": "图像右侧有一个明显的橙色球状障碍物，根据指令需要避开。左前方水域开阔且有明显的光影汇聚，是目标行进方向。因此，采取向左移动的动作以避开右侧障碍物，并向目标区域靠近。选择中等速度以保持稳定推进，同时注意观察底部珊瑚礁以保持安全距离。",
+            "action": {
+                "direction": "左",
+                "speed": "medium",
+                "confidence": 0.9
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/6_2.png"
+        ]
+    },
+    {
+        "instruction": "保持匀速向前靠近正前方的巨大石柱，同时注意观察底部岩石的分布情况。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中心有一个巨大的石柱，根据指令要求匀速向前靠近该石柱。目前前方路径清晰，底部岩石分布在两侧，不影响直线前进，因此选择‘前’进方向，并保持‘medium’速度以实现匀速移动。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/7_1.png"
+        ]
+    },
+    {
+        "instruction": "保持匀速向右前方那根带有绿色标记的石柱靠拢，注意观察底部礁石的动态变化。",
+        "input": "",
+        "output": {
+            "reasoning": "图像中右前方可见一根带有绿色标记的石柱，符合指令中的目标描述。为了向该目标靠拢，决策为向前移动，并保持中等速度以符合‘匀速’要求。同时，需持续监控底部礁石以防碰撞。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.9
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/7_2.png"
+        ]
+    },
+    {
+        "instruction": "继续向前靠近前方的仿生结构体，保持平稳航行，同时密切关注底部珊瑚丛的避障距离。",
+        "input": "",
+        "output": {
+            "reasoning": "当前仿生结构体位于视野正前方，路径相对清晰。根据指令要求继续向前靠近，同时需要注意底部珊瑚丛的高度。为了保持平稳航行并兼顾避障，选择中等速度继续前行。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/8_1.png"
+        ]
+    },
+    {
+        "instruction": "向右前方加速跟随前方的潜航器，注意避开上方的黑色管状结构，并保持匀速前进。",
+        "input": "",
+        "output": {
+            "reasoning": "图像显示前方有一艘潜航器正向右前方移动，上方悬挂着黑色管状结构。根据指令‘向右前方跟随’且‘避开上方结构’，机器人需要向右侧调整航向以对准潜航器的路径并拉开与上方障碍物的距离，同时采用中速以实现加速跟随。",
+            "action": {
+                "direction": "右",
+                "speed": "medium",
+                "confidence": 0.9
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/8_2.png"
+        ]
+    },
+    {
+        "instruction": "沿着左侧管道持续前行，保持航向居中，注意观察前方隧道尽头的能见度变化。",
+        "input": "",
+        "output": {
+            "reasoning": "当前视觉输入显示左侧有一条明显的管道，前方隧道路径清晰且无障碍物。根据指令要求，机器人应沿着左侧管道持续前行并保持航向居中。目前处于隧道内部，尚未到达尽头，因此维持前进状态。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/9_1.png"
+        ]
+    },
+    {
+        "instruction": "向前匀速航行，保持在大型潜航器侧方进行近距离观察，注意上方气泡流的动态影响。",
+        "input": "",
+        "output": {
+            "reasoning": "机器人目前位于大型潜航器的侧方，视野清晰。根据指令要求向前匀速航行并进行近距离观察，前方路径无障碍物，气泡流位于上方，暂不影响当前航线。因此，保持向前移动以持续观察。",
+            "action": {
+                "direction": "前",
+                "speed": "medium",
+                "confidence": 0.95
+            },
+            "status": "任务中"
+        },
+        "images": [
+            "data/images/9_2.png"
+        ]
+    }
+]

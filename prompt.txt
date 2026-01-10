@@ -1,0 +1,10 @@
+prompt: breathtaking {crossdressing,otoko_no_ko,}adorable_girl,maid,teenager,slender,
+fair_skin,{on_side,} . award-winning,professional,highly detailed,masterpiece,best quality,
+glamor,petite,
+
+negative prompt: ((too many plants)),aquatic lives,
+plants,bad composition,cartoon,cg,3d,unreal,animate,cgi,render,artwork,illustration,3d render,cinema 4d,
+artstation,octane render,painting,oil painting,2d,sketch,bad photography,bad photo,deviant art,aberrations,
+abstract,anime,black and white,collapsed,conjoined,creative,drawing,extra windows,harsh lighting,jpeg artifacts,
+low saturation,monochrome,multiple levels,overexposed,oversaturated,photoshop,rotten,surreal,twisted,
+UI,underexposed,unnatural,unreal engine,unrealistic,video game,

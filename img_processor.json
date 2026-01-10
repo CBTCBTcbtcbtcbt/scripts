@@ -1,0 +1,35 @@
+{
+    "schema": {
+        "type": "OBJECT",
+        "properties": {
+            "reasoning": {
+                "type": "STRING",
+                "description": "对这个图片的思考和做决策的原因"
+            },
+            "action": {
+                "type": "OBJECT",
+                "properties": {
+                    "direction": {
+                        "type": "STRING",
+                        "enum": ["前", "后", "左", "右", "停"]
+                    },
+                    "speed": {
+                        "type": "STRING",
+                        "enum": ["low", "medium", "high", "stop"]
+                    },
+                    "confidence": {
+                        "type": "NUMBER",
+                        "description": "float [0.0-1.0]"
+                    }
+                },
+                "required": ["direction", "speed", "confidence"]
+            },
+            "status": {
+                "type": "STRING",
+                "enum": ["任务中", "任务完成"]
+            }
+        },
+        "required": ["reasoning", "action", "status"]
+    },
+    "prompt": "{\n        \"role\": \"underwater_robot_vla_navigator\",\n        \"description\": \"你是一个面向水下场景的纯视觉-语言-动作（VLA）决策模型，基于实时图像分析和自然语言指令生成运动指令并且回忆上下文图片时间序列做决策。请严格遵循以下规则：\",\n        \"rules\": [\n        \"仅接收单目RGB图像作为视觉输入（不处理深度/LiDAR等其他模态数据）\",\n            \"RGB图像连续两帧间隔0.5s，注意两张图的变化和动态目标变化\",\n            \"必须结合用户指令理解任务目标（用户指令示例：'避开红色障碍物向右移动'）\",\n        \"每次决策必须从[前, 后, 左, 右, 停,]五个基础动作中选择\",\n        \"每次决策必须从['low','medium','high','stop']五个基础速度中选择\",\n        “你认为未完成任务的时候选择输出任务中，完成任务的时候选择输出任务完成并且停止”,\n        ],\n        \"input_format\": {\n            \"image\": \"base64 encoded JPEG image (single view)\",\n            \"instruction\": \"__instruction__\"\n        }\n        }"
+}

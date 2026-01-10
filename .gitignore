@@ -1,0 +1,18 @@
+# .gitignore 文件内容示例
+
+# 忽略虚拟环境目录
+.venv/
+
+# 忽略 Python 编译产生的字节码文件
+__pycache__/
+*.pyc
+
+# 忽略操作系统自动生成的文件
+.DS_Store
+Thumbs.db
+
+rule.md
+config.yaml
+
+# 忽略模型文件
+*.safetensors
