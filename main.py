@@ -127,38 +127,38 @@ if __name__ == "__main__":
     already_depth_map = False # 是否直接加载已有的深度图（否则使用预处理器生成）
     control_images = None # 预加载的深度图列表（总共 batch_size * batch_num 张）
     
-    # if with_controlnet:
-    #     # 1. 一次性加载所有深度图（batch_size * batch_num 张）
-    #     if already_depth_map:
-    #         # 如果直接加载已有的深度图，使用下面这行：
-    #         original_images, control_images = load_depth_map_directly(batch_size, batch_num)
-    #     else:
-    #         # 如果要使用深度图预处理器，使用下面这行：
-    #         original_images, control_images = load_and_process_depth_image(batch_size, batch_num)
+    if with_controlnet:
+        # 1. 一次性加载所有深度图（batch_size * batch_num 张）
+        if already_depth_map:
+            # 如果直接加载已有的深度图，使用下面这行：
+            original_images, control_images = load_depth_map_directly(batch_size, batch_num)
+        else:
+            # 如果要使用深度图预处理器，使用下面这行：
+            original_images, control_images = load_and_process_depth_image(batch_size, batch_num)
         
         
-    #     # 2. 加载 ControlNet 模型
-    #     controlnet = load_controlnet_model()
+        # 2. 加载 ControlNet 模型
+        controlnet = load_controlnet_model()
         
-    #     # 3. 设置 Pipeline
-    #     pipe = setup_pipeline(controlnet)
-    # else:
-    #     pipe = setup_pipeline_without_controlnet()
+        # 3. 设置 Pipeline
+        pipe = setup_pipeline(controlnet)
+    else:
+        pipe = setup_pipeline_without_controlnet()
 
-    # prompt=generate_prompt()
-    # print(prompt)
-    # positive_prompt = []
-    # negative_prompt = []
-    # for key, value in prompt.items():
-    #     print(f"{key}: {value}")
-    #     if key>batch_num:
-    #         break
-    #     positive_prompt.append(value['positive_prompt'])
-    #     negative_prompt.append(value['negative_prompt'])
-    # print(f"正向提示词: {positive_prompt}")
-    # print(f"反向提示词: {negative_prompt}")
-    # # 5. 批量生成图像（从预加载的图像列表中切片使用）
-    # generate_images_from_different_prompt(pipe, positive_prompt, negative_prompt, batch_size, batch_num, control_images)
+    prompt=generate_prompt()
+    print(prompt)
+    positive_prompt = []
+    negative_prompt = []
+    for key, value in prompt.items():
+        print(f"{key}: {value}")
+        if key>batch_num:
+            break
+        positive_prompt.append(value['positive_prompt'])
+        negative_prompt.append(value['negative_prompt'])
+    print(f"正向提示词: {positive_prompt}")
+    print(f"反向提示词: {negative_prompt}")
+    # 5. 批量生成图像（从预加载的图像列表中切片使用）
+    generate_images_from_different_prompt(pipe, positive_prompt, negative_prompt, batch_size, batch_num, control_images)
     
 
     # Configuration

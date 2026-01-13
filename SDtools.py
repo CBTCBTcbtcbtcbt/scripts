@@ -1,3 +1,4 @@
+import os
 import torch
 import numpy as np
 from PIL import Image
@@ -408,6 +409,11 @@ def generate_images_from_different_prompt(pipe, positive_prompt_list, negative_p
         # 为本次批量生成创建一个共同的时间戳
         batch_timestamp = generate_timestamp()
     
+        # 检查并创建目录
+        directory = "data/images"
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+
         for j, img in enumerate(output):
             # 文件名格式: output_batch_{批次号}_seed_{种子}_{时间戳}.png
             filename = f"data/images/{i+1}_{j+1}.png"
