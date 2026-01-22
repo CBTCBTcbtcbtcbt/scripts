@@ -73,7 +73,8 @@ def process_image_task(
             api_key=api_key,
             base_url=base_url,
             model=model,
-            provider=provider
+            provider=provider,
+            temperature=0.2,
         )
 
         # Construct multimodal message
@@ -99,21 +100,21 @@ def process_image_task(
         traceback.print_exc()
         raise e
 
-def load_prompt_config(json_path='img_processor.json'):
-    """Load schema and prompt from a JSON file."""
+def load_prompt_config(yaml_path='img_processor.yaml'):
+    """Load schema and prompt from a YAML file."""
     # Use absolute path if needed, or rely on CWD
-    if not os.path.exists(json_path):
+    if not os.path.exists(yaml_path):
         # Try finding it relative to script
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        possible_path = os.path.join(script_dir, json_path)
+        possible_path = os.path.join(script_dir, yaml_path)
         if os.path.exists(possible_path):
-            json_path = possible_path
+            yaml_path = possible_path
     
-    if not os.path.exists(json_path):
-        raise FileNotFoundError(f"Config file {json_path} not found.")
+    if not os.path.exists(yaml_path):
+        raise FileNotFoundError(f"Config file {yaml_path} not found.")
 
-    with open(json_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    with open(yaml_path, 'r', encoding='utf-8') as f:
+        data = yaml.safe_load(f)
     
     return data.get('schema'), data.get('prompt')
 

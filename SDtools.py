@@ -340,7 +340,7 @@ def generate_images_batch(pipe, prompt, negative_prompt, batch_size, batch_num,c
     
     print("所有图像已成功保存。")
 
-def generate_images_from_different_prompt(pipe, positive_prompt_list, negative_prompt_list, batch_size, batch_num,control_images_list=None):
+def generate_images_from_different_prompt(pipe, positive_prompt_list, negative_prompt_list, batch_size, batch_num,output_directory = "data/images",control_images_list=None):
     """
     批量生成图像（从预加载的图像列表中切片）
     
@@ -410,9 +410,9 @@ def generate_images_from_different_prompt(pipe, positive_prompt_list, negative_p
         batch_timestamp = generate_timestamp()
     
         # 检查并创建目录
-        directory = "data/images"
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        
+        if not os.path.exists(output_directory):
+            os.makedirs(output_directory)
 
         for j, img in enumerate(output):
             # 文件名格式: output_batch_{批次号}_seed_{种子}_{时间戳}.png

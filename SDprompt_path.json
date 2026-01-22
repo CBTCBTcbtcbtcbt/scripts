@@ -1,0 +1,82 @@
+{
+    "1": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A red buoy is located directly behind a dense kelp forest in deep blue water. Volumetric light rays penetrate from above, subtle haze, natural blue-green filtering, particles in the water.",
+        "negative_prompt": "low quality, excessive clarity, 8k, warm colors, red tint, sunlight from surface, text, watermark, sharp edges, overexposed, macro shot."
+    },
+    "2": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. An ancient stone pillar stands to the left side of a sunken car wreck in tropical shallow water. Volumetric light, subtle haze, blue-green filtering, sandy floor with ripples.",
+        "negative_prompt": "low resolution, high contrast, orange tones, yellow tones, clear air, surface reflections, text, artifact, cartoon, drawing, high sharpness."
+    },
+    "3": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A lost submarine is visible through a narrow gap in a wall of volcanic rock under murky visibility. Volumetric light, subtle haze, heavy blue-green filtering, marine snow.",
+        "negative_prompt": "ultra clear, 8k, bright sunlight, warm hues, red spectrum, human figures, text, signature, low-res, sharp focus on distant objects."
+    },
+    "4": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A submarine pipeline section lies beyond a massive brain coral under strong sunlight caustics. Volumetric light, subtle haze, blue-green filtering, caustic patterns on the seabed.",
+        "negative_prompt": "low quality, dark, muddy, red colors, orange light, text, logo, blurry foreground, excessive sharpness, surface waves, air bubbles."
+    },
+    "5": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A glowing deep-sea vent is positioned to the right of abandoned fishing nets in a field of bioluminescent algae. Volumetric light, subtle haze, deep blue-green filtering.",
+        "negative_prompt": "low quality, daylight, bright sun, warm color palette, text, watermark, clear visibility, 8k, ultra-detailed, surface boat."
+    },
+    "6": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A red buoy is positioned directly above a sunken car wreck in green-tinted water. Volumetric light, subtle haze, blue-green filtering, algae particles suspended in water.",
+        "negative_prompt": "low resolution, ultra clear, 8k, red tint, sunset colors, text, watermark, dry land, sharp horizon, high saturation."
+    },
+    "7": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. An ancient stone pillar is partially obscured by a dense kelp forest in murky visibility. Volumetric light, subtle haze, heavy blue-green filtering, silt and sediment.",
+        "negative_prompt": "high clarity, 8k, warm lighting, orange water, text, artifacts, surface reflections, macro photography, vibrant tropical colors."
+    },
+    "8": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A lost submarine is situated past a massive brain coral in deep blue water. Volumetric light, subtle haze, blue-green filtering, soft focus on the distance.",
+        "negative_prompt": "low quality, over-sharpened, red tones, yellow light, text, logo, clear air, beach, surface splash, high-resolution textures."
+    },
+    "9": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A submarine pipeline section is adjacent to a wall of volcanic rock in tropical shallow water. Volumetric light, subtle haze, blue-green filtering, shimmering light effects.",
+        "negative_prompt": "low quality, dark, red color cast, warm temperature, text, watermark, 8k, ultra clear, land, mountain, human presence."
+    },
+    "10": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A glowing deep-sea vent is hidden within a dense kelp forest in green-tinted water. Volumetric light, subtle haze, blue-green filtering, organic debris.",
+        "negative_prompt": "clear visibility, 8k, bright red, orange glow, text, signature, surface ripples, diving gear, high contrast, over-lit."
+    },
+    "11": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A red buoy is trapped behind abandoned fishing nets under strong sunlight caustics. Volumetric light, subtle haze, blue-green filtering, intricate net shadows.",
+        "negative_prompt": "low quality, 8k, ultra clear, warm colors, yellow tint, text, watermark, sharp edges, surface reflection, sunset."
+    },
+    "12": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. An ancient stone pillar stands behind a wall of volcanic rock surrounded by bioluminescent algae. Volumetric light, subtle haze, blue-green filtering, glowing particles.",
+        "negative_prompt": "low quality, daylight, bright sun, red tones, orange light, text, artifact, clear water, air, land, blurry target."
+    },
+    "13": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A lost submarine is partially covered by abandoned fishing nets in murky visibility. Volumetric light, subtle haze, blue-green filtering, sediment-heavy water.",
+        "negative_prompt": "ultra clear, 8k, bright colors, warm palette, text, watermark, sharp focus, surface view, tropical beach, high-definition."
+    },
+    "14": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A submarine pipeline section runs parallel to a sunken car wreck in deep blue water. Volumetric light, subtle haze, blue-green filtering, rusted metal textures.",
+        "negative_prompt": "low quality, high contrast, red tint, yellow tint, text, logo, clear air, surface waves, cartoon, 3d render."
+    },
+    "15": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A glowing deep-sea vent is located below a massive brain coral in tropical shallow water. Volumetric light, subtle haze, blue-green filtering, reef ecosystem.",
+        "negative_prompt": "low quality, 8k, ultra clear, sunset lighting, red water, text, signature, surface boat, sharp horizon, overexposed."
+    },
+    "16": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A red buoy is visible through a crack in a wall of volcanic rock in green-tinted water. Volumetric light, subtle haze, blue-green filtering, shadowed foreground.",
+        "negative_prompt": "low quality, bright yellow, red tones, clear visibility, text, watermark, 8k, macro, surface air, human, diver."
+    },
+    "17": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. An ancient stone pillar is rising behind abandoned fishing nets under strong sunlight caustics. Volumetric light, subtle haze, blue-green filtering, caustic light play.",
+        "negative_prompt": "low resolution, dark, red tint, orange tint, 8k, ultra clear, text, logo, artifact, beach, dry, sharp focus."
+    },
+    "18": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A lost submarine is emerging from a dense kelp forest in bioluminescent algae water. Volumetric light, subtle haze, blue-green filtering, glowing specs.",
+        "negative_prompt": "low quality, daylight, warm colors, red spectrum, text, signature, surface ripples, high clarity, 8k, sharp edges."
+    },
+    "19": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A submarine pipeline section is fixed along the base of a wall of volcanic rock in murky visibility. Volumetric light, subtle haze, blue-green filtering, dense particulate.",
+        "negative_prompt": "ultra clear, high resolution, 8k, bright sunlight, warm hues, red light, text, watermark, cartoon, painting, surface."
+    },
+    "20": {
+        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion, photorealistic underwater photography. A glowing deep-sea vent is glowing in the distance past a sunken car wreck in deep blue water. Volumetric light, subtle haze, blue-green filtering, dark abyss feel.",
+        "negative_prompt": "low quality, over-exposed, red tones, yellow light, text, logo, clear air, surface splash, 8k, ultra clear, macro."
+    }
+}

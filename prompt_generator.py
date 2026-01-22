@@ -2,6 +2,7 @@
 import sys
 import os
 import json
+import yaml
 import re
 sys.path.append('..')
 
@@ -10,15 +11,15 @@ from LLM import LLMClient, Conversation, load_config
 
 def generate_prompt():
     """Generate prompt from file and interact with LLM."""
-    prompt_path = "meta_prompt.json"
+    prompt_path = "meta_prompt.yaml"
 
     # Load API config and create client
     config = load_config('./config.yaml')
     api = config['api']
 
     with open(prompt_path, 'r', encoding='utf-8') as f:
-            # 使用 json.load() 读取文件对象 f 中的 JSON 数据
-            prompt = json.load(f)
+            # 使用 yaml.safe_load() 读取文件对象 f 中的 YAML 数据
+            prompt = yaml.safe_load(f)
 
     client = LLMClient(
         api_key=api['api_key'],
@@ -59,4 +60,4 @@ def generate_prompt():
 
 
 if __name__ == '__main__':
-    generate_prompt()
+    print(generate_prompt())
