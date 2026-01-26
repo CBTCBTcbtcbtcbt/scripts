@@ -1,10 +1,42 @@
 import json
 import os
+import base64
 from prompt_generator import generate_prompt
 from SDtools import load_and_process_depth_image,load_controlnet_model,load_depth_map_directly,load_prompts_from_file,setup_pipeline,setup_pipeline_without_controlnet,generate_images_from_different_prompt
 from img_processer import process_image_task,load_prompt_config
 from pathlib import Path
 import re
+
+# 配置：是否将图片转换为 base64 编码
+USEBASE64 = False
+
+def image_to_base64(image_path):
+    """
+    将图片文件转换为 base64 编码的字符串
+    
+    Args:
+        image_path: 图片文件路径
+    
+    Returns:
+        str: base64 编码的图片字符串（带有 data URI 前缀）
+    """
+    # 根据文件扩展名确定 MIME 类型
+    ext = Path(image_path).suffix.lower()
+    mime_types = {
+        '.png': 'image/png',
+        '.jpg': 'image/jpeg',
+        '.jpeg': 'image/jpeg',
+        '.gif': 'image/gif',
+        '.bmp': 'image/bmp',
+        '.webp': 'image/webp'
+    }
+    mime_type = mime_types.get(ext, 'image/png')
+    
+    with open(image_path, 'rb') as f:
+        image_data = f.read()
+    
+    base64_str = base64.b64encode(image_data).decode('utf-8')
+    return f"{base64_str}"
 
 def smart_rename(target_dir):
     dir_path = Path(target_dir)
@@ -195,11 +227,17 @@ def run_image_analysis(image_path, output_json_path):
         result_data = result
 
     # Format final output
+    # 根据 USEBASE64 配置决定 images 字段存储路径还是 base64 编码
+    if USEBASE64:
+        images_value = [image_to_base64(image_path)]
+    else:
+        images_value = [image_path]
+    
     formatted_result = {
         "instruction": prompt,
         "input": instruction_text,
         "output": result_data,
-        "images": [image_path],
+        "images": images_value,
     }
 
     # Save result
@@ -215,103 +253,103 @@ if __name__ == "__main__":
     control_images = None # 预加载的深度图列表（总共 batch_size * batch_num 张）
     output_dir = "data/images"  # 输出图像的目录
 
-    # prompt=generate_prompt()
-    # print(prompt)
-    # SDprompt_path = "SDprompt.json"
-    # # 保存 prompt 到 SDprompt.json 文件
-    # with open('SDprompt_path.json', 'w', encoding='utf-8') as f:
-    #     json.dump(prompt, f, ensure_ascii=False, indent=4)
-    # print("Prompt 已保存到 SDprompt.json")
+    prompt=generate_prompt()
+    print(prompt)
+    SDprompt_path = "SDprompt.json"
+    # 保存 prompt 到 SDprompt.json 文件
+    with open('SDprompt_path.json', 'w', encoding='utf-8') as f:
+        json.dump(prompt, f, ensure_ascii=False, indent=4)
+    print("Prompt 已保存到 SDprompt.json")
 
-    # #读取prompt,如果先统一生成并储存prompt，就用以下读取储存的prompt
-    # # try:
-    # #     with open(SDprompt_path, 'r', encoding='utf-8') as f:
-    # #         # 3. 将 JSON 字符串解析为 Python 字典/列表
-    # #         prompts = json.load(f)
-    # # except FileNotFoundError:
-    # #     print(f"错误：找不到文件 {SDprompt_path}")
-    # # except json.JSONDecodeError:
-    # #     print(f"错误：{SDprompt_path} 格式不正确，无法解析。")
-    # #     print(f"成功从 {SDprompt_path} 读取数据。")
+    #读取prompt,如果先统一生成并储存prompt，就用以下读取储存的prompt
+    # try:
+    #     with open(SDprompt_path, 'r', encoding='utf-8') as f:
+    #         # 3. 将 JSON 字符串解析为 Python 字典/列表
+    #         prompts = json.load(f)
+    # except FileNotFoundError:
+    #     print(f"错误：找不到文件 {SDprompt_path}")
+    # except json.JSONDecodeError:
+    #     print(f"错误：{SDprompt_path} 格式不正确，无法解析。")
+    #     print(f"成功从 {SDprompt_path} 读取数据。")
 
-    # positive_prompt = []
-    # negative_prompt = []
-    # for key, value in prompt.items():
-    #     print(f"{key}: {value}")
-    #     if key>batch_num:
-    #         break
-    #     positive_prompt.append(value['positive_prompt'])
-    #     negative_prompt.append(value['negative_prompt'])
-    # print(f"正向提示词: {positive_prompt}")
-    # print(f"反向提示词: {negative_prompt}")
+    positive_prompt = []
+    negative_prompt = []
+    for key, value in prompt.items():
+        print(f"{key}: {value}")
+        if key>batch_num:
+            break
+        positive_prompt.append(value['positive_prompt'])
+        negative_prompt.append(value['negative_prompt'])
+    print(f"正向提示词: {positive_prompt}")
+    print(f"反向提示词: {negative_prompt}")
 
-    # if with_controlnet:
-    #     # 1. 一次性加载所有深度图（batch_size * batch_num 张）
-    #     if already_depth_map:
-    #         # 如果直接加载已有的深度图，使用下面这行：
-    #         original_images, control_images = load_depth_map_directly(batch_size, batch_num)
-    #     else:
-    #         # 如果要使用深度图预处理器，使用下面这行：
-    #         original_images, control_images = load_and_process_depth_image(batch_size, batch_num)
+    if with_controlnet:
+        # 1. 一次性加载所有深度图（batch_size * batch_num 张）
+        if already_depth_map:
+            # 如果直接加载已有的深度图，使用下面这行：
+            original_images, control_images = load_depth_map_directly(batch_size, batch_num)
+        else:
+            # 如果要使用深度图预处理器，使用下面这行：
+            original_images, control_images = load_and_process_depth_image(batch_size, batch_num)
         
         
-    #     # 2. 加载 ControlNet 模型
-    #     controlnet = load_controlnet_model()
+        # 2. 加载 ControlNet 模型
+        controlnet = load_controlnet_model()
         
-    #     # 3. 设置 Pipeline
-    #     pipe = setup_pipeline(controlnet)
-    # else:
-    #     pipe = setup_pipeline_without_controlnet()
+        # 3. 设置 Pipeline
+        pipe = setup_pipeline(controlnet)
+    else:
+        pipe = setup_pipeline_without_controlnet()
 
-    # # 5. 批量生成图像（从预加载的图像列表中切片使用）
-    # generate_images_from_different_prompt(pipe, positive_prompt, negative_prompt, batch_size, batch_num,output_directory=output_dir, control_images_list=control_images)
+    # 5. 批量生成图像（从预加载的图像列表中切片使用）
+    generate_images_from_different_prompt(pipe, positive_prompt, negative_prompt, batch_size, batch_num,output_directory=output_dir, control_images_list=control_images)
     
     # # 重命名目录中的图片文件
     # smart_rename('data/images')
 
-    # 确保目录存在
-    Path('data').mkdir(parents=True, exist_ok=True)
+    # # 确保目录存在
+    # Path('data').mkdir(parents=True, exist_ok=True)
 
-    # Configuration
-    OUTPUT_JSON_PATH = "data/action_data.json"
-    IMAGES_DIR = Path("data/images")  # 统一使用 Path 对象
+    # # Configuration
+    # OUTPUT_JSON_PATH = "data/action_data.json"
+    # IMAGES_DIR = Path("data/images")  # 统一使用 Path 对象
 
-    # 支持的图片格式 (set 查找速度更快)
-    IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.bmp', '.webp', '.gif'}
+    # # 支持的图片格式 (set 查找速度更快)
+    # IMAGE_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.bmp', '.webp', '.gif'}
 
-    # Execute for all images in the directory
-    if IMAGES_DIR.exists():
-        # 获取目录中所有图片文件
-        image_files = [
-            f for f in IMAGES_DIR.iterdir() 
-            if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
-        ]
-        # 按文件名排序
-        image_files.sort(key=lambda x: x.name)
-        print(f"找到 {len(image_files)} 张图片文件")
+    # # Execute for all images in the directory
+    # if IMAGES_DIR.exists():
+    #     # 获取目录中所有图片文件
+    #     image_files = [
+    #         f for f in IMAGES_DIR.iterdir() 
+    #         if f.is_file() and f.suffix.lower() in IMAGE_EXTENSIONS
+    #     ]
+    #     # 按文件名排序
+    #     image_files.sort(key=lambda x: x.name)
+    #     print(f"找到 {len(image_files)} 张图片文件")
         
-        processed_count = 0
-        skipped_count = 0
+    #     processed_count = 0
+    #     skipped_count = 0
         
-        for image_file in image_files:
-            # image_file 本身就是 Path 对象，使用 as_posix() 强制输出 / 斜杠
-            image_path_str = image_file.as_posix()
+    #     for image_file in image_files:
+    #         # image_file 本身就是 Path 对象，使用 as_posix() 强制输出 / 斜杠
+    #         image_path_str = image_file.as_posix()
             
-            # 检查图片是否已经处理过
-            if is_image_processed(image_path_str, OUTPUT_JSON_PATH):
-                print(f"\n[跳过] {image_path_str} - 该图片已处理过")
-                skipped_count += 1
-                continue
+    #         # 检查图片是否已经处理过
+    #         if is_image_processed(image_path_str, OUTPUT_JSON_PATH):
+    #             print(f"\n[跳过] {image_path_str} - 该图片已处理过")
+    #             skipped_count += 1
+    #             continue
             
-            print(f"\n========== Processing {image_path_str} ==========")
+    #         print(f"\n========== Processing {image_path_str} ==========")
             
-            # 传入 run_image_analysis 时，如果函数接受字符串，则传字符串
-            run_image_analysis(image_path_str, OUTPUT_JSON_PATH)
-            processed_count += 1
+    #         # 传入 run_image_analysis 时，如果函数接受字符串，则传字符串
+    #         run_image_analysis(image_path_str, OUTPUT_JSON_PATH)
+    #         processed_count += 1
         
-        print(f"\n======== 处理完成 ========")
-        print(f"总图片数: {len(image_files)}")
-        print(f"已处理: {processed_count}")
-        print(f"已跳过: {skipped_count}")
-    else:
-        print(f"Warning: Directory {IMAGES_DIR} not found.")
+    #     print(f"\n======== 处理完成 ========")
+    #     print(f"总图片数: {len(image_files)}")
+    #     print(f"已处理: {processed_count}")
+    #     print(f"已跳过: {skipped_count}")
+    # else:
+    #     print(f"Warning: Directory {IMAGES_DIR} not found.")
