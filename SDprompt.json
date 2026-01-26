@@ -1,42 +1,62 @@
 {
     "1": {
-        "positive_prompt": "First-person AUV view through a wide-angle lens with slight lens distortion, deep blue water with volumetric light and subtle haze. A red buoy is partially obscured, located directly behind a dense kelp forest. Photorealistic underwater photography style with blue-green filtering, capturing the particulate matter in the water column.",
-        "negative_prompt": "low quality, excessive clarity, warm colors, red tint, surface waves, text, sharp edges, dry land, 8k, ultra clear."
+        "positive_prompt": "First-person AUV camera view through a 14mm wide-angle lens with barrel distortion and digital noise. A half-buried underwater acoustic pinger is gated behind a narrow passage formed by concrete tetrapods and a muddy seafloor ridge. High turbidity silt suspension creates heavy particulate backscatter and a strong Tyndall effect. Environment is a hypoxic grey zone with severe depth-dependent color attenuation and chromatic aberration at the frame edges."
     },
     "2": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Murky visibility in green-tinted water with subtle haze. An ancient stone pillar stands in the distance, accessible by navigating through the left side of a rusted sunken car wreck. Photorealistic underwater style, volumetric light, blue-green filtering.",
-        "negative_prompt": "high contrast, clear water, bright sun, red tones, distorted shapes, text, surface reflection, 8k, ultra clear, macro."
+        "positive_prompt": "AUV perspective using a wide-angle sensor. A calcified subsea Xmas tree and a pipeline flange are layered behind a massive brain coral in the immediate foreground. Tropical shallow water environment with refracted sun rays forming caustics across the seabed. A dense plankton bloom adds visual noise, with volumetric god-rays and subtle backscatter. Chromatic aberration is visible in the corners."
     },
     "3": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Tropical shallow water with strong sunlight caustics and volumetric light. A submarine pipeline section is suspended just above a jagged wall of volcanic rock. Photorealistic underwater photography, blue-green filtering, subtle haze, realistic marine snow.",
-        "negative_prompt": "8k, ultra clear, orange light, sunset, surface air, beach, text, blurry foreground, high saturation, overexposed."
+        "positive_prompt": "First-person navigation feed from an AUV. A pristine flashing beacon is clearly visible, separated from a sunken car wreck obstacle. Deep abyssal blue environment with high visibility. Subtle lens flare from the beacon's artificial light, minor marine snow, and Tyndall effect in the light beam. 14mm lens distortion and slight digital noise in the shadows."
     },
     "4": {
-        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion. Bioluminescent algae illuminating the deep water with a soft glow. A glowing deep-sea vent is visible through a narrow gap in a massive brain coral. Photorealistic underwater style, volumetric light, subtle haze, blue-green filtering.",
-        "negative_prompt": "daylight, bright sun, clear visibility, warm colors, red spectrum, text, watermark, 8k, ultra clear, surface view."
+        "positive_prompt": "AUV camera shot in an industrial runoff zone. A lost scientific probe and a manometer gauge are entangled in nets and clustered in a messy pile with abandoned ghost nets and steel scaffolding. A silt-out cloud severely limits visibility to under 2m. Heavy particulate backscatter and Tyndall effect from the AUV's lights. Barrel distortion and digital sensor noise are prominent."
     },
     "5": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Deep blue water with subtle haze and volumetric light. A massive lost submarine is positioned to the right of a large cluster of abandoned fishing nets. Photorealistic underwater photography style, blue-green filtering, natural depth of field.",
-        "negative_prompt": "overexposed, high clarity, warm tones, yellow light, surface ripples, text, distorted lens, 8k, ultra clear, sunset."
+        "positive_prompt": "First-person AUV view in the dark twilight zone. A submarine hatch overgrown with anemones is partially obscured by a shipwreck hull and a whale carcass. Marine snow creates significant backscatter. Distraction logic: the white anemones share the same shape as the hatch handle. Depth-dependent color attenuation has removed all reds. 14mm wide-angle lens with chromatic aberration."
     },
     "6": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Murky visibility in dark green-tinted water. A red buoy is located far beyond a steep wall of volcanic rock, appearing as a faint silhouette. Photorealistic underwater style, subtle haze, volumetric light, blue-green filtering.",
-        "negative_prompt": "sharp focus, clear water, red sunlight, sunset, surface bubbles, text, low resolution, 8k, ultra clear, bright colors."
+        "positive_prompt": "AUV sensor view in a volcanic red-tinted thermal zone. A hydrophone array with scorched thermal damage is gated between two active hydrothermal chimneys. Thermal shimmering from the thermocline and methane seep bubbles create intense visual distortion. High turbidity and backscatter from volcanic minerals. 14mm lens with barrel distortion and digital noise."
     },
     "7": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Strong sunlight caustics dancing in the water column. An ancient stone pillar is nestled deep inside a dense kelp forest, requiring a path through the center. Photorealistic underwater photography, subtle haze, blue-green filtering.",
-        "negative_prompt": "macro photography, dry, air, warm colors, red light, text, high definition, 8k, ultra clear, surface sky."
+        "positive_prompt": "Wide-angle AUV camera view in murky green coastal water. A rusted red mooring buoy is positioned behind a row of concrete reef balls. Tyndall effect is visible through the green haze. Depth-dependent color attenuation makes the red buoy appear dark brown. Standard barrel distortion and chromatic aberration at the edges of the 14mm frame."
     },
     "8": {
-        "positive_prompt": "First-person AUV view, wide-angle lens with slight lens distortion. Green-tinted water with volumetric light and particulate scattering. A submarine pipeline section is situated directly below a precarious sunken car wreck. Photorealistic underwater style, subtle haze, blue-green filtering.",
-        "negative_prompt": "crystal clear, bright red, orange, surface sky, text, signature, low quality, 8k, ultra clear, desert."
+        "positive_prompt": "First-person AUV navigation feed. A fractured fiber optic cable repeater and a power transformer are clustered together amidst fallen undersea power lines and large plastic debris. Eutrophic yellow-brown water environment with a dense plankton bloom. Volumetric god-rays are visible but muffled. Particulate backscatter and digital noise are present in the shadows."
     },
     "9": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Deep blue water with subtle haze. A lost submarine is partially hidden behind a massive brain coral, visible as the AUV approaches from the seafloor. Photorealistic underwater photography style, volumetric light, blue-green filtering.",
-        "negative_prompt": "high contrast, clear air, warm light, sun, surface foam, text, artifacts, 8k, ultra clear, tropical beach."
+        "positive_prompt": "AUV camera view in an Arctic ice-covered cyan environment. An emergency black box is buried under silt, with only 20% visibility, layered behind subsea landslide debris and tangled rebar in the foreground. A silt-out cloud from the AUV's thrusters creates a white-out effect. 14mm lens distortion, chromatic aberration, and heavy digital noise."
     },
     "10": {
-        "positive_prompt": "First-person AUV view, wide-angle lens, slight lens distortion. Murky visibility with subtle haze and volumetric light. A glowing deep-sea vent is found by navigating around the left edge of a tangle of abandoned fishing nets. Photorealistic underwater style, blue-green filtering, deep sea atmosphere.",
-        "negative_prompt": "ultra clear, 8k, warm tones, red light, surface, sky, text, logo, bright daylight, sharp edges."
+        "positive_prompt": "First-person AUV view near mangrove root shadows. A moss-covered ancient amphora is gated behind a submerged bridge pylon. Lens flare from the AUV's artificial lights interacts with the murky water. Tyndall effect and particulate backscatter are moderate. 14mm wide-angle lens with barrel distortion and subtle digital noise."
+    },
+    "11": {
+        "positive_prompt": "AUV navigation sensor shot. A pristine submerged airplane engine is layered behind an underwater cliff edge in the foreground. Deep abyssal blue environment with volumetric god-rays and high visibility. Subtle marine snow and depth-dependent color attenuation. 14mm lens with chromatic aberration and barrel distortion."
+    },
+    "12": {
+        "positive_prompt": "First-person AUV view in a deep-sea brine pool. A leak detection sensor and an industrial valve, both covered in soot and oil, are surrounded by discarded oil drums and a sunken container crane. Methane seep bubbles and high turbidity create a chaotic visual field. Distraction: the oil drums mimic the shape of the sensor. Digital noise and barrel distortion are high."
+    },
+    "13": {
+        "positive_prompt": "AUV camera perspective in a tropical shallow zone. A structurally deformed salvage lift bag and a sunken shipping container are clustered near a massive brain coral and a cluster of sea urchins. Refracted sun rays (caustics) dance on the surfaces. Moderate backscatter and Tyndall effect. 14mm wide-angle lens with chromatic aberration."
+    },
+    "14": {
+        "positive_prompt": "First-person AUV feed in murky green coastal water. A barnacle-encrusted structural bolt is gated by a section of a shipwreck hull. Refracted sun rays penetrate the upper water column. Depth-dependent color attenuation is evident. 14mm lens with barrel distortion and subtle digital noise in the darker shipwreck recesses."
+    },
+    "15": {
+        "positive_prompt": "AUV sensor view in an industrial runoff zone. A partially disassembled sacrificial anode and a subsea wellhead are layered behind concrete tetrapods and steel scaffolding. Cavitation bubbles and high turbidity silt suspension create a low-visibility 'silt-out'. Intense particulate backscatter and Tyndall effect. 14mm lens with heavy digital noise."
+    },
+    "16": {
+        "positive_prompt": "First-person AUV navigation feed in Arctic ice-covered cyan water. A docking station with heavy biofouling is hidden within a dense kelp forest and abandoned ghost nets. Distraction logic: the kelp blades mimic the shape of the docking arms. Tyndall effect from surface light. 14mm wide-angle lens with chromatic aberration and barrel distortion."
+    },
+    "17": {
+        "positive_prompt": "AUV camera shot in the dark twilight zone. A calcified underwater acoustic pinger and a lost scientific probe are clustered together on a muddy seafloor ridge, occluded by jagged volcanic rock. A silt-out cloud obscures 75% of the targets. Heavy backscatter from the AUV's spotlights. 14mm lens with digital noise and barrel distortion."
+    },
+    "18": {
+        "positive_prompt": "First-person AUV view in deep abyssal blue water. A pristine flashing beacon is positioned near concrete reef balls. High visibility with minor marine snow. Lens flare from the artificial beacon light and volumetric god-rays from the surface. 14mm wide-angle lens with subtle chromatic aberration at the frame edges."
+    },
+    "19": {
+        "positive_prompt": "AUV perspective in eutrophic yellow-brown water. A rusted pipeline flange is gated behind a fallen undersea power line and a shipwreck hull. Marine snow and organic particulates create a hazy atmosphere. Depth-dependent color attenuation has shifted the palette to yellows and greens. 14mm lens with barrel distortion."
+    },
+    "20": {
+        "positive_prompt": "First-person AUV feed in a deep abyssal blue environment. An emergency black box and a submarine hatch, both entangled in nets, are layered behind a whale carcass and tangled rebar. Bioluminescent flicker from nearby organisms and intense particulate backscatter from AUV lights. 14mm wide-angle lens with digital noise and chromatic aberration."
     }
 }

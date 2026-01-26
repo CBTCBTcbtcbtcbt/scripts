@@ -252,20 +252,24 @@ if __name__ == "__main__":
     already_depth_map = False # 是否直接加载已有的深度图（否则使用预处理器生成）
     control_images = None # 预加载的深度图列表（总共 batch_size * batch_num 张）
     output_dir = "data/images"  # 输出图像的目录
+    
+    # 确保目录存在
+    Path('data').mkdir(parents=True, exist_ok=True)
 
     prompt=generate_prompt()
     print(prompt)
     SDprompt_path = "SDprompt.json"
     # 保存 prompt 到 SDprompt.json 文件
-    with open('SDprompt_path.json', 'w', encoding='utf-8') as f:
+    with open(SDprompt_path, 'w', encoding='utf-8') as f:
         json.dump(prompt, f, ensure_ascii=False, indent=4)
     print("Prompt 已保存到 SDprompt.json")
 
-    #读取prompt,如果先统一生成并储存prompt，就用以下读取储存的prompt
+    # # 读取prompt,如果先统一生成并储存prompt，就用以下读取储存的prompt
     # try:
     #     with open(SDprompt_path, 'r', encoding='utf-8') as f:
     #         # 3. 将 JSON 字符串解析为 Python 字典/列表
     #         prompts = json.load(f)
+    #         print(f"成功从 {SDprompt_path} 读取数据。")
     # except FileNotFoundError:
     #     print(f"错误：找不到文件 {SDprompt_path}")
     # except json.JSONDecodeError:
@@ -273,14 +277,15 @@ if __name__ == "__main__":
     #     print(f"成功从 {SDprompt_path} 读取数据。")
 
     positive_prompt = []
-    negative_prompt = []
     for key, value in prompt.items():
         print(f"{key}: {value}")
         if key>batch_num:
             break
         positive_prompt.append(value['positive_prompt'])
-        negative_prompt.append(value['negative_prompt'])
     print(f"正向提示词: {positive_prompt}")
+
+    single_negative_prompt = "(worst quality, low quality:1.4), (deformed, distorted, disfigured:1.3), high contrast, vibrant colors, oversaturated, crystal clear water, tropical paradise, swimming pool, bright sunlight, surface reflections, human, diver, fish, coral reef (if not specified), beach, land, sky, clouds, birds, (text, watermark, logo, signature:1.2), (sharp focus, macro photography:1.1), (bokeh, blurry background:1.2), painting, drawing, cartoon, anime, 3d render, octane render, unreal engine, plastic look, smooth surfaces, perfect symmetry, flat lighting, clean equipment."
+    negative_prompt=[single_negative_prompt]*batch_num
     print(f"反向提示词: {negative_prompt}")
 
     if with_controlnet:
@@ -304,11 +309,9 @@ if __name__ == "__main__":
     # 5. 批量生成图像（从预加载的图像列表中切片使用）
     generate_images_from_different_prompt(pipe, positive_prompt, negative_prompt, batch_size, batch_num,output_directory=output_dir, control_images_list=control_images)
     
-    # # 重命名目录中的图片文件
-    # smart_rename('data/images')
+    # 重命名目录中的图片文件
+    smart_rename('data/images')
 
-    # # 确保目录存在
-    # Path('data').mkdir(parents=True, exist_ok=True)
 
     # # Configuration
     # OUTPUT_JSON_PATH = "data/action_data.json"

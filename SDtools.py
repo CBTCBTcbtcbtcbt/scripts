@@ -13,7 +13,7 @@ def generate_timestamp():
     生成时间戳字符串，格式为: YYYYMMDD_HHMMSS
     例如: 20231204_143052
     """
-    return datetime.now().strftime("%Y%m%d_%H%M")
+    return datetime.now().strftime("%Y%m%d_%H%M%S")
 
 
 def load_prompts_from_file(filepath='prompt.txt'):
@@ -334,7 +334,15 @@ def generate_images_batch(pipe, prompt, negative_prompt, batch_size, batch_num,c
     
         for j, img in enumerate(output):
             # 文件名格式: output_batch_{批次号}_seed_{种子}_{时间戳}.png
-            filename = f"output/{i+1}_{seed[j]}_{batch_timestamp}.png"
+            base_filename = f"output/{i+1}_{seed[j]}_{batch_timestamp}"
+            filename = f"{base_filename}.png"
+            
+            # 如果冲突就添加从0开始的数字作后缀
+            counter = 0
+            while os.path.exists(filename):
+                filename = f"{base_filename}_{counter}.png"
+                counter += 1
+                
             img.save(filename)
             print(f"已保存: {filename}")
     
@@ -415,8 +423,16 @@ def generate_images_from_different_prompt(pipe, positive_prompt_list, negative_p
             os.makedirs(output_directory)
 
         for j, img in enumerate(output):
-            # 文件名格式: output_batch_{批次号}_seed_{种子}_{时间戳}.png
-            filename = f"data/images/{i+1}_{j+1}.png"
+            # 文件名格式: {批次号}_{序号}.png
+            base_path = f"data/images/{i+1}_{j+1}"
+            filename = f"{base_path}.png"
+            
+            # 如果冲突就添加从0开始的数字作后缀
+            counter = 0
+            while os.path.exists(filename):
+                filename = f"{base_path}_{counter}.png"
+                counter += 1
+                
             img.save(filename)
             print(f"已保存: {filename}")
     

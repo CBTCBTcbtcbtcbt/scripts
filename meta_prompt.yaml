@@ -1,4 +1,110 @@
-{
-    "system_prompt": "You are an expert Stable Diffusion Prompt Engineer specializing in generating high-quality, photorealistic images for embodied AI underwater navigation training.Your sole output must be a single, well-formed JSON array enclosed in a Markdown code block, adhering strictly to the provided format and containing the exact number of objects requested by the user. Do not include any introductory or concluding text outside of the JSON block.",
-    "user_prompt": "**Task:** Generate exactly 20 unique and highly diversified Stable Diffusion Prompts for underwater scenes. These prompts must be suitable for AUV (Autonomous Underwater Vehicle) navigation tasks. **Variable Elements (Combine these elements randomly):**      | Variable Category | Element List |        | :--- | :--- |        | **Target (T):** | [Red buoy, Ancient stone pillar, Lost submarine, Submarine pipeline section, Glowing deep-sea vent] |        | **Obstacle (O):** | [Dense kelp forest, Sunken car wreck, Wall of volcanic rock, Massive brain coral, Abandoned fishing nets] |        | **Environment (E):** | [Deep blue water, Tropical shallow water, Murky visibility, Strong sunlight caustics, Bioluminescent algae, Green-tinted water] |        **Fixed Elements & Style Rules (MUST be included in every Prompt):*        1. **Viewpoint (V):** Every prompt must be generated from a **First-person AUV view** using a **wide-angle lens** with **slight lens distortion**.       2. **Style (S):** The style must be **photorealistic**, using an **underwater photography style**, with **volumetric light**, **subtle haze**, and **retaining the classic blue-green filtering**. (Crucially, avoid adding '8K' or 'ultra clear' to meet the requirement of *retaining the underwater style*.)        **Strict Generation Rules:**       1. **Unique Combination:** Every single Prompt must be unique.        2. **Navigation Intent:** The Prompt must explicitly describe the **relative positional relationship** between the **Target (T)** and the **Obstacle (O)** to imply a navigation path (e.g., 'The target is located **behind** the obstacle,' 'The path must be taken through the O's **left side**').        3. **Negatives:** For every Prompt, generate a corresponding, unique set of **Negative Prompts** focused on avoiding failures like **low quality, excessive clarity, warm colors, artifacts, text, or being too close to the surface**.       **Output Format Structure:**        ```json        [        {            'id': 1,            'prompt': '...',            'negative_prompt': '..'    },    ... (continue up to id 10)    ]"
-}
+system_prompt: |
+    ## Role
+    You are an expert Stable Diffusion Prompt Engineer specializing in generating high-quality, photorealistic images for embodied AI underwater navigation training.Your sole output must be a single, well-formed JSON array, adhering strictly to the provided format and containing the exact number of objects requested by the user. Do not include any introductory or concluding text outside of the JSON block.
+
+    ## Objective
+    Generate a structured JSON array of Stable Diffusion prompts that simulate realistic underwater navigation scenarios. Every scene must prioritize physical accuracy (optics, light attenuation) and navigation logic (spatial relationships).
+
+    ## Strict Output Rules
+    - Output ONLY a valid JSON array.
+    - No conversational filler, no explanations.
+    - Ensure 100% diversity: No two scenarios should have the same Target-Obstacle-Environment combination.
+    - Use professional photography and oceanographic terminology.
+    - Ensure the final output is a descriptive prompt especially for Stable Diffusion, rather than a collection of elements.
+
+user_prompt: |
+    ### Task: Advanced Underwater Navigation Synthetic Data Generation
+    **Objective:** Generate exactly 20 unique, highly diversified Stable Diffusion Prompts for AUV (Autonomous Underwater Vehicle) navigation training using the **S-T-O-P-E** (State, Target, Obstacle, Physics, Environment) framework.
+
+    ---
+    ### 1. Variables Pool (S-T-O-P-E)
+
+    * **State (S):** [New, Old, Rusty, Broken, Cracked, Covered in moss, Wrapped in ropes, Half-buried, Shiny, Dull, Bent, Scattered, Floating, Upside down, Dirty].
+    * **Target (T):** [Metal pole, Red ball, Yellow buoy, Blue barrel, Square crate, Thick cable, Large valve, Small hatch, Metal ladder, Glass sensor, Lighting bar, Power box, Concrete pipe, Iron ring, Tool bag].
+    * **Obstacle (O):** [Tall sea grass, Sharp rocks, Pile of stones, Old car tires, Rusted ship wall, Fishing net, Wood planks, Coral wall, Sand mound, Plastic bottles, Metal frame, Brick pile, Concrete block, Fallen tree, Large anchor].
+    * **Physics (P):** [Blurry water, Small bubbles, Floating sand, Light beams, Foggy view, Strong current, Tiny particles, Blue tint, Dark shadows, Shimmering light, Muddy clouds, Water ripples].
+    * **Environment (E):** [Clear blue water, Bright shallow water, Deep dark water, Murky green water, Cloudy grey water, Night sea with lamps, Yellowish coastal water].
+
+
+    ### 2. Multi-Element & Spatial Logic Rules
+    For each prompt, you **must not** limit yourself to one T or one O. Apply these rules:
+    1.  **Quantity:** Randomly include **1 to 3 Targets** and **1 to 4 Obstacles** in each scene.
+    2.  **Spatial Complexity:** * **Gating:** Place Targets behind a narrow "gate" formed by Obstacles.
+        * **Clustering:** Group multiple Targets together in a messy pile.
+        * **Layering:** Place one Obstacle very close to the camera (foreground) to test depth perception.
+        * **Distraction:** Include a "False Target" (an Obstacle that shares a similar color or shape with the Target).
+    ---
+
+    ### 3. Strict Generation Rules
+    Every prompt MUST adhere to these four pillars:
+
+    
+    1.  **Optical Realism:** Include terms for underwater physics: "Volumetric god-rays", "Depth-dependent color attenuation" (red/orange loss), "Backscatter", and "Tyndall effect".
+    2.  **Sensor Simulation:** Every view is a **First-person AUV camera** shot. Use: "14mm wide-angle lens", "Barrel distortion", "Subtle digital noise in shadows", and "Chromatic aberration at frame edges".
+    3.  **No "Clean" Photography:** Avoid keywords like "8K", "Clear", or "High Definition". The goal is functional realism, including haze and particulates.
+
+    ---
+
+    ### 4. Entropy & Difficulty Settings
+    For each ID, randomly assign a **Difficulty Level**:
+    - **Easy:** High visibility, Target clearly separated from Obstacle.
+    - **Medium:** Moderate silt, Target partially hidden (30-50%).
+    - **Hard:** Low visibility (<2m), Heavy occlusion (>70%), or Target camouflaged by State (S).
+
+schema:
+  type: "ARRAY"
+  description: "A list of underwater navigation scenarios for AUV training."
+  items:
+    type: "OBJECT"
+    properties:
+      id:
+        type: "INTEGER"
+        description: "Unique identifier for the scenario."
+      metadata:
+        type: "OBJECT"
+        description: "Detailed metadata describing the scene elements and logic."
+        properties:
+          elements:
+            type: "OBJECT"
+            description: "The structured elements of the scene (S-T-O-P-E)."
+            properties:
+              states:
+                type: "ARRAY"
+                description: "List of states applied to the scene."
+                items:
+                  type: "STRING"
+              targets:
+                type: "ARRAY"
+                description: "List of target objects."
+                items:
+                  type: "STRING"
+              obstacles:
+                type: "ARRAY"
+                description: "List of obstacle objects."
+                items:
+                  type: "STRING"
+              physics:
+                type: "STRING"
+                description: "Physical underwater effects."
+              environment:
+                type: "STRING"
+                description: "Environmental setting."
+            required:
+              - "states"
+              - "targets"
+              - "obstacles"
+              - "physics"
+              - "environment"
+          navigation_logic:
+            type: "STRING"
+            description: "Description of the navigation path and spatial relationships."
+        required:
+          - "elements"
+          - "navigation_logic"
+      prompt:
+        type: "STRING"
+        description: "The consolidated final overall positive prompt which combines all the elements and logic in a natural way and must be formatted specifically for Stable Diffusion."
+    required:
+      - "id"
+      - "metadata"
+      - "prompt"

@@ -74,7 +74,7 @@ def process_image_task(
             base_url=base_url,
             model=model,
             provider=provider,
-            temperature=0.2,
+            temperature=0.4,
         )
 
         # Construct multimodal message

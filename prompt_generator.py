@@ -33,22 +33,19 @@ def generate_prompt():
     conv = Conversation(client, system_prompt=prompt['system_prompt'])
 
     # Chat
-    response = conv.send(user_message=prompt['user_prompt'])
+    schema = prompt.get('schema')
+    response = conv.send(user_message=prompt['user_prompt'], schema=schema)
     
     # Clean and parse response
     try:
-        # Remove markdown code blocks if present
-        content = re.sub(r'^```json\s*', '', response.strip(), flags=re.MULTILINE)
-        content = re.sub(r'\s*```$', '', content, flags=re.MULTILINE)
-        
-        data_list = json.loads(content)
+        # With structured output, response is already a valid JSON string conforming to schema
+        data_list = json.loads(response)
         
         # Transform to desired dictionary format
         formatted_response = {}
         for item in data_list:
-            formatted_response[item['id']] = {
-                'positive_prompt': item['prompt'],
-                'negative_prompt': item['negative_prompt']
+            formatted_response[item.get('id', len(formatted_response)+1)] = {
+                'positive_prompt': item.get('prompt', ''),
             }
         
         return formatted_response
@@ -60,4 +57,7 @@ def generate_prompt():
 
 
 if __name__ == '__main__':
-    print(generate_prompt())
+    prompt=generate_prompt()
+    print(prompt)
+    print(type(prompt))
+
